@@ -24,7 +24,7 @@ function copyFiles() {
   fs.readdir(filesFolder, (err, files) => {
     if (err) throw err;
     files.forEach((file) => {
-      fs.copyFile(`${filesFolder}/${file}`, `${destFolder}/${file}`, (err) => {
+      fs.copyFile(path.join(filesFolder, file), path.join(destFolder, file), (err) => {
         if (err) console.log(err);
       });
     });
