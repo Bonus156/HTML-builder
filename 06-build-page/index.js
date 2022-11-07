@@ -7,11 +7,7 @@ const templateFile = path.join(__dirname, 'template.html');
 
 const components = path.join(__dirname, 'components');
 
-let temporaryTemplate = '';
-
-// const rs = fs.createReadStream(templateFile);
 const index = path.join(__dirname, 'project-dist', 'index.html');
-// const wsIndex = new fs.WriteStream(index);
 
 // создать целевую папку с проектом
 async function createFolder(destFolder) {    
