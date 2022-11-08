@@ -7,7 +7,8 @@ fs.readdir(path.join(__dirname, 'secret-folder'), {withFileTypes: true}, (err, f
     if (file.isFile()) {
       fs.stat(path.join(__dirname, 'secret-folder', file.name), (err, data) => {
         if (err) throw err;
-        console.log(`${file.name} - ${path.extname(file.name).slice(1)} - ${data.size / 1024} kb`);
+        const parseFileName = path.parse(file.name);
+        console.log(`${parseFileName.name} - ${path.extname(file.name).slice(1)} - ${data.size / 1024} kb`);
       });
     }
   });

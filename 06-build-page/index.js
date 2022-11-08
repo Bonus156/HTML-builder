@@ -32,6 +32,7 @@ fs.copyFile(templateFile, index, (err) => {
   if (err) console.log(err);
 });
 
+
 // работа с css
 const style = path.join(destFolder, 'style.css');
 const wsStyleBundle = fs.createWriteStream(style);
@@ -44,6 +45,7 @@ fs.readdir(path.join(__dirname, 'styles'), {withFileTypes: true}, (err, files) =
     };
   });  
 });
+
 
 // скопировать папку ассетс со всем содержимым в целевую папку 
 function createCopyOfDirectory(dir, destDir) {
@@ -68,12 +70,16 @@ function createCopyOfDirectory(dir, destDir) {
 
 createCopyOfDirectory(path.join(__dirname, 'assets'), path.join(destFolder, 'assets'));
 
+
+
 // записываем содержимое файла index.html в переменную text
 let text = '';
 fs.readFile(index, 'utf8', (err, data) => {
   if (err) throw err;
   text = data;
 });
+
+
 
 // находим имена файлов в директории components
 fs.readdir(components, { withFileTypes: true }, (err, filesList) => {
