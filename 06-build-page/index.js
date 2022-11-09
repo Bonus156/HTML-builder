@@ -32,6 +32,14 @@ fs.copyFile(templateFile, index, (err) => {
   if (err) console.log(err);
 });
 
+// записываем содержимое файла template.html в переменную text
+let text = '';
+fs.readFile(templateFile, 'utf8', (err, data) => {
+  if (err) throw err;
+  text = data;
+});
+
+
 
 // работа с css
 const style = path.join(destFolder, 'style.css');
@@ -69,15 +77,6 @@ function createCopyOfDirectory(dir, destDir) {
 }
 
 createCopyOfDirectory(path.join(__dirname, 'assets'), path.join(destFolder, 'assets'));
-
-
-
-// записываем содержимое файла index.html в переменную text
-let text = '';
-fs.readFile(index, 'utf8', (err, data) => {
-  if (err) throw err;
-  text = data;
-});
 
 
 
